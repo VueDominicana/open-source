@@ -5,8 +5,7 @@
 
 ## Motivation
 
-We just want to do something for fun but at the same time learn by doing. This is an excellent project for someone who wants to learn Vue.
-
+We just want to replicate all the features that [opensource](https://github.com/developersdo/opensource/) has just for fun and at the same time introduce more people to the open-source community. This is an excellent project for someone who wants to learn Vue.
 The source in order to make this work will be:
 
 1. https://developersdo.github.io/opensource/data/repos.json
