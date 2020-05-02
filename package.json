@@ -41,6 +41,6 @@
     }
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix"
+    "*.(vue|js)": "npm run lint"
   }
 }
