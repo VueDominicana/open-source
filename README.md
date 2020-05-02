@@ -1,4 +1,4 @@
-# open-source
+# open-source [![Netlify Status](https://api.netlify.com/api/v1/badges/6172ee72-5dd4-42d6-9463-47bbbc5c007e/deploy-status)](https://app.netlify.com/sites/opensourcevue/deploys)
 
 > 🔦 Discover the open source ecosystem related to the Dominican Republic!
 > This project is inpired by [opensource](https://github.com/developersdo/opensource/) developer by [rmariuzzo](https://github.com/rmariuzzo)
