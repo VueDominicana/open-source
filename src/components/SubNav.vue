@@ -18,4 +18,18 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+div {
+  display: flex;
+  justify-content: center;
+  a {
+    margin: 40px;
+    font-size: 20px;
+    color: black;
+  }
+  .router-link-active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+</style>
