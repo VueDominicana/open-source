@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p>Developers</p>
     <SubNav :sections="sections" />
     <router-view />
   </div>
