@@ -16,7 +16,8 @@ If you want to join the community here is the link.
 [![WhatsApp](https://i.imgur.com/ewvbbzu.png)](https://chat.whatsapp.com/L5rFQpme22IHmmyOMI1MWA)
 
 ## Notes
-We're using [Vue-Material](https://vuematerial.io/) to bootstrap the project.
+
+We're using [Materialize](https://materializecss.com/) to bootstrap the project.
 
 ## Project setup
 
