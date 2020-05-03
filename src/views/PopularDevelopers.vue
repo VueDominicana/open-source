@@ -1,6 +1,6 @@
 <template>
   <div>
-    Popular Developers
+    <h3 class="center-align">Popular Developers</h3>
   </div>
 </template>
 

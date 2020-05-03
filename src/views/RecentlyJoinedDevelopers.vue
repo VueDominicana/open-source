@@ -1,6 +1,6 @@
 <template>
   <div>
-    Recently Joined Developers
+    <h3 class="center-align">Recently Joined Developers</h3>
   </div>
 </template>
 

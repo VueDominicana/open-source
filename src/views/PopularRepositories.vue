@@ -1,6 +1,6 @@
 <template>
   <div>
-    Popular Repositories
+    <h3 class="center-align">Popular Repositories</h3>
   </div>
 </template>
 

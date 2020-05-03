@@ -1,4 +1,4 @@
 import Vue from "vue";
-import "@/config/vue-material.js";
+import "@/config/materialize";
 
 Vue.config.productionTip = false;

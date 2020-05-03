@@ -18,6 +18,7 @@ module.exports = {
     curly: ["error", "all"],
     "no-return-assign": 0,
     "no-undef": 0,
+    indent: [2, 2, { SwitchCase: 1 }],
     quotes: [
       "error",
       "double",

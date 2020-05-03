@@ -1,14 +1,32 @@
 <template>
   <div>
-    <p>Developers</p>
-    <router-link class="md-subheading" to="/developers/popular">Popular</router-link> |
-    <router-link class="md-subheading" to="/developers/recently-joined">Recently joined</router-link>
+    <SubNav :sections="sections" />
     <router-view />
   </div>
 </template>
 
 <script>
-export default {};
+import SubNav from "@/components/SubNav";
+export default {
+  name: "Deveopers",
+  components: {
+    SubNav
+  },
+  data() {
+    return {
+      sections: [
+        {
+          name: "PopularDevelopers",
+          label: "Popular"
+        },
+        {
+          name: "RecentlyJoinedDevelopers",
+          label: "Recently joined"
+        }
+      ]
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped></style>
