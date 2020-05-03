@@ -50,6 +50,7 @@ export default {
         width: 1.5em;
         vertical-align: middle;
         margin-right: 8px;
+        margin-top: -5px;
       }
       span {
         font-size: 2.1rem;
