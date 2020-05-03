@@ -18,7 +18,7 @@ If you want to join the community here is the link.
 
 ## How to contribute 
 
-> :thought_balloon:If you are new in Open Source world feel free to check our [How to contribute guidelines](https://github.com/VueDominicana/open-source/blob/master/CONTRIBUTING.md)
+> :thought_balloon: If you are new in Open Source world feel free to check our [How to contribute guidelines](https://github.com/VueDominicana/open-source/blob/master/CONTRIBUTING.md)
 
 ## Notes
 
