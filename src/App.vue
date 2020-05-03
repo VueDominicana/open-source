@@ -10,9 +10,7 @@
 
 <script>
 import AppNav from "@/components/Nav";
-// Import component
 import Loading from "vue-loading-overlay";
-// Import stylesheet
 import "vue-loading-overlay/dist/vue-loading.css";
 
 export default {
@@ -27,11 +25,11 @@ export default {
     }
   },
   mounted() {
-    //TODO remove sample
-    this.$store.dispatch("App/setLoading", true);
-    setTimeout(() => {
-      this.$store.dispatch("App/setLoading", false);
-    }, 5000);
+    // TODO: Enable this when we start fetching data from the API
+    // this.$store.dispatch("App/setLoading", true);
+    // setTimeout(() => {
+    //   this.$store.dispatch("App/setLoading", false);
+    // }, 5000);
   }
 };
 </script>
