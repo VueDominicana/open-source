@@ -27,20 +27,13 @@ export default {
   computed: {
     languagesWithColors() {
       return this.languages.split(" ").map(language => {
-        if (colors[language]) {
-          const languageColor = colors[language] || "black";
-          return {
-            text: language,
-            backgroundColor: languageColor,
-            textColor: setContrast(hexToRgb(languageColor))
-          };
-        } else {
-          return {
-            text: language,
-            backgroundColor: "#e4e4e4",
-            textColor: "black"
-          };
-        }
+        const backgroundColor = colors[language] || "#e4e4e4";
+        const textColor = colors[language] ? setContrast(hexToRgb(backgroundColor)) : "black";
+        return {
+          text: language,
+          backgroundColor,
+          textColor
+        };
       });
     }
   }
