@@ -1,6 +1,8 @@
 <template>
   <div>
+    <span v-if="!languages.trim()">(no languages)</span>
     <a
+      v-else
       href="#"
       class="chip"
       v-for="(language, index) in languagesWithColors"
@@ -26,15 +28,18 @@ export default {
   },
   computed: {
     languagesWithColors() {
-      return this.languages.split(" ").map(language => {
-        const backgroundColor = colors[language] || "#e4e4e4";
-        const textColor = colors[language] ? setContrast(hexToRgb(backgroundColor)) : "black";
-        return {
-          text: language,
-          backgroundColor,
-          textColor
-        };
-      });
+      return this.languages
+        .trim()
+        .split(" ")
+        .map(language => {
+          const backgroundColor = colors[language] || "#e4e4e4";
+          const textColor = colors[language] ? setContrast(hexToRgb(backgroundColor)) : "black";
+          return {
+            text: language,
+            backgroundColor,
+            textColor
+          };
+        });
     }
   }
 };
