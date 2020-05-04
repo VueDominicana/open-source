@@ -14,7 +14,7 @@
 
 <script>
 import colors from "@/util/colors.json";
-import { hexToRgb, setContrast } from "@/util/helpers";
+import { hexToRgb, setContrast } from "@/util/colors";
 
 export default {
   name: "Language",
