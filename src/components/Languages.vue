@@ -33,7 +33,7 @@ export default {
         .split(" ")
         .map(language => {
           const backgroundColor = colors[language] || "#e4e4e4";
-          const textColor = colors[language] ? setContrast(hexToRgb(backgroundColor)) : "black";
+          const textColor = setContrast(hexToRgb(backgroundColor));
           return {
             text: language,
             backgroundColor,
