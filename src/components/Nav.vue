@@ -12,7 +12,9 @@
             <span>Dominican Open Source</span>
           </div>
         </div>
-        <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+          <i class="material-icons">menu</i>
+        </a>
         <ul class="sections right hide-on-med-and-down">
           <li :class="{ active: ['PopularRepositories', 'NewRepositories'].includes($route.name) }">
             <router-link to="/repositories/popular">Repositories</router-link>
@@ -42,7 +44,10 @@
 
 <script>
 export default {
-  name: "Nav"
+  name: "Nav",
+  mounted() {
+    M.AutoInit();
+  }
 };
 </script>
 
