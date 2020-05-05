@@ -5,11 +5,13 @@
     <div class="container">
       <router-view />
     </div>
+    <FloatingActionButton />
   </div>
 </template>
 
 <script>
 import AppNav from "@/components/Nav";
+import FloatingActionButton from "@/components/FloatingActionButton";
 import Loading from "vue-loading-overlay";
 import "vue-loading-overlay/dist/vue-loading.css";
 
@@ -17,7 +19,8 @@ export default {
   name: "App",
   components: {
     Loading,
-    AppNav
+    AppNav,
+    FloatingActionButton
   },
   computed: {
     isLoading() {
