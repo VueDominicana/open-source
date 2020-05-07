@@ -22,17 +22,20 @@
     </p>
     <div class="row">
       <PopularLanguages :languages="languages" />
+      <Statistics />
     </div>
   </div>
 </template>
 
 <script>
 import PopularLanguages from "@/components/PopularLanguages";
+import Statistics from "@/components/Statistics";
 
 export default {
   name: "About",
   components: {
-    PopularLanguages
+    PopularLanguages,
+    Statistics
   },
   data() {
     return {
@@ -56,4 +59,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.about {
+  .row {
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+  }
+}
+</style>
