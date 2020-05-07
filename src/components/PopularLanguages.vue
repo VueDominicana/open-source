@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     popularLanguages() {
-      return Array.isArray(this.languages) && this.languages.length
+      return this.languages.length
         ? this.languages.slice().sort((languageA, languageB) => (languageA.score > languageB.score ? -1 : 1))
         : [];
     }
