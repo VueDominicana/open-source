@@ -1,16 +1,21 @@
 <template>
   <div>
     <SubNav :sections="sections" />
-    <router-view />
+    <router-view>
+      <InputSearch label="Filter developer by name or login name..." />
+    </router-view>
   </div>
 </template>
 
 <script>
 import SubNav from "@/components/SubNav";
+import InputSearch from "@/components/InputSearch";
+
 export default {
   name: "Deveopers",
   components: {
-    SubNav
+    SubNav,
+    InputSearch
   },
   data() {
     return {

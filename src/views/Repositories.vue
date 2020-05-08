@@ -1,17 +1,21 @@
 <template>
   <div>
     <SubNav :sections="sections" />
-    <router-view />
+    <router-view>
+      <InputSearch label="Filter repository by name or description..." />
+    </router-view>
   </div>
 </template>
 
 <script>
 import SubNav from "@/components/SubNav";
+import InputSearch from "@/components/InputSearch";
 
 export default {
   name: "Repositories",
   components: {
-    SubNav
+    SubNav,
+    InputSearch
   },
   data() {
     return {
