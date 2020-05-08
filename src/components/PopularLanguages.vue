@@ -16,12 +16,14 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "PopularLanguages",
   computed: {
-    popularLanguages() {
-      return this.$store.getters["About/reposLanguages"].slice(0, 10);
-    }
+    ...mapGetters({
+      popularLanguages: "About/mostPopularLanguage"
+    })
   }
 };
 </script>
