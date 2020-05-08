@@ -27,12 +27,12 @@ export default {
       return this.$store.getters["App/isLoading"];
     }
   },
-  mounted() {
-    // TODO: Enable this when we start fetching data from the API
-    // this.$store.dispatch("App/setLoading", true);
-    // setTimeout(() => {
-    //   this.$store.dispatch("App/setLoading", false);
-    // }, 5000);
+  async mounted() {
+    await this.$store.dispatch("App/setLoading", true);
+
+    await Promise.all([this.$store.dispatch("About/getDevelopers"), this.$store.dispatch("About/getRepositories")]);
+
+    await this.$store.dispatch("App/setLoading", false);
   }
 };
 </script>

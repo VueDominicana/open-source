@@ -9,6 +9,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "lodash": "^4.17.15",
     "materialize-css": "^1.0.0-rc.2",
