@@ -27,15 +27,12 @@ export default {
       return this.$store.getters["App/isLoading"];
     }
   },
-  mounted() {
-    this.$store.dispatch("App/setLoading", true);
+  async mounted() {
+    await this.$store.dispatch("App/setLoading", true);
 
-    this.$store.dispatch("About/getDevelopers");
-    this.$store.dispatch("About/getRepositories");
+    await Promise.all([this.$store.dispatch("About/getDevelopers"), this.$store.dispatch("About/getRepositories")]);
 
-    setTimeout(() => {
-      this.$store.dispatch("App/setLoading", false);
-    }, 5000);
+    await this.$store.dispatch("App/setLoading", false);
   }
 };
 </script>
