@@ -22,34 +22,24 @@
     </p>
     <div class="row">
       <PopularLanguages :languages="languages" />
-      <Statistics :developers="developers" :repositories="repositories" />
+      <Statistics />
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
-
 import Statistics from "@/components/Statistics";
 import PopularLanguages from "@/components/PopularLanguages";
 
 export default {
   name: "About",
-
   components: {
     PopularLanguages,
     Statistics
   },
-
-  computed: mapState({
-    developers: state => state.About.developers,
-
-    repositories: state => state.About.repositories
-  }),
-
   data() {
     return {
-      //TODO: remove sample data
+      // TODO: remove sample data
       languages: [
         {
           text: "css",
