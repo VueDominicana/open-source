@@ -47,12 +47,6 @@ export default {
     repositories: state => state.About.repositories
   }),
 
-  created() {
-    this.$store.dispatch("About/getDevelopers");
-
-    this.$store.dispatch("About/getRepositories");
-  },
-
   data() {
     return {
       //TODO: remove sample data

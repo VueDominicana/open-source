@@ -28,11 +28,14 @@ export default {
     }
   },
   mounted() {
-    // TODO: Enable this when we start fetching data from the API
-    // this.$store.dispatch("App/setLoading", true);
-    // setTimeout(() => {
-    //   this.$store.dispatch("App/setLoading", false);
-    // }, 5000);
+    this.$store.dispatch("App/setLoading", true);
+
+    this.$store.dispatch("About/getDevelopers");
+    this.$store.dispatch("About/getRepositories");
+
+    setTimeout(() => {
+      this.$store.dispatch("App/setLoading", false);
+    }, 5000);
   }
 };
 </script>
