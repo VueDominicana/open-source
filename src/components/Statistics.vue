@@ -45,60 +45,23 @@
 </template>
 
 <script>
-import map from "lodash/map";
+import { mapGetters, mapState } from "vuex";
 
 export default {
   name: "Statistics",
-  props: {
-    repositories: {
-      type: Array,
-      required: true,
-      default: () => []
-    },
-    developers: {
-      type: Array,
-      required: true,
-      default: () => []
-    }
-  },
   computed: {
-    developersWithMoreThanTenRepos() {
-      return this.developers.filter(developer => developer.sources > 10).length;
-    },
-    reposWithMoreThanOneStar() {
-      return this.repositories.filter(repo => repo.stargazers > 1).length;
-    },
-    reposContributionAvg() {
-      return (this.repositories.length / this.developers.length).toFixed(1);
-    },
-    reposLanguagesTotals() {
-      return this.repositories.reduce((total, repo) => {
-        if (!repo.languages.length) {
-          return total;
-        }
-
-        return repo.languages.split(" ").reduce((sum, language) => {
-          let languageTotal = sum[language] || 0;
-
-          languageTotal++;
-
-          return { ...sum, [language]: languageTotal };
-        }, total);
-      }, {});
-    },
-    reposLanguages() {
-      return map(this.reposLanguagesTotals, (total, name) => ({
-        name,
-        total,
-        percentage: ((total / this.repositories.length) * 100).toFixed(2)
-      })).sort((a, b) => b.total - a.total);
-    },
-    lessUsedLanguages() {
-      return this.reposLanguages
-        .slice(-10)
-        .map(lang => lang.name)
-        .join(", ");
-    }
+    ...mapState({
+      developers: state => state.About.developers,
+      repositories: state => state.About.repositories
+    }),
+    ...mapGetters({
+      developersWithMoreThanTenRepos: "About/developersWithMoreThanTenRepos",
+      reposWithMoreThanOneStar: "About/reposWithMoreThanOneStar",
+      reposContributionAvg: "About/reposContributionAvg",
+      reposLanguagesTotals: "About/reposLanguagesTotals",
+      reposLanguages: "About/reposLanguages",
+      lessUsedLanguages: "About/lessUsedLanguages"
+    })
   }
 };
 </script>
