@@ -21,7 +21,7 @@
       wants to learn Vue.
     </p>
     <div class="row">
-      <PopularLanguages :languages="languages" />
+      <PopularLanguages />
       <Statistics />
     </div>
   </div>
@@ -36,25 +36,6 @@ export default {
   components: {
     PopularLanguages,
     Statistics
-  },
-  data() {
-    return {
-      // TODO: remove sample data
-      languages: [
-        {
-          text: "css",
-          score: 31.21
-        },
-        {
-          text: "javascript",
-          score: 39.11
-        },
-        {
-          text: "html",
-          score: 33.6
-        }
-      ]
-    };
   }
 };
 </script>
