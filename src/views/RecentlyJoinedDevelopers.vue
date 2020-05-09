@@ -1,6 +1,7 @@
 <template>
   <div>
     <h3 class="center-align">Recently Joined Developers</h3>
+    <slot />
   </div>
 </template>
 

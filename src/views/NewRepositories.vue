@@ -1,6 +1,7 @@
 <template>
   <div>
     <h3 class="center-align">New Repositories</h3>
+    <slot />
   </div>
 </template>
 
