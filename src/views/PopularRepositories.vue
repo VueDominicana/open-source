@@ -36,6 +36,9 @@ export default {
       repositories: "About/repositories"
     }),
     filteredRepositories() {
+      if (!this.search) {
+        return sortBy(this.repositories, repo => -repo.stargazers).slice(0, 10);
+      }
       const results = searcher.search(this.search).slice(0, 10);
       return sortBy(results, repo => -repo.stargazers);
     }
