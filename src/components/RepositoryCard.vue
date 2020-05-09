@@ -1,11 +1,11 @@
 <template>
-  <div class="row">
+  <div v-if="developer" class="row">
     <div class="col s12 m12">
       <div class="card">
         <div class="card-content black-text">
           <header>
             <strong>#1</strong>
-            <a href="#">{{ repository.name }}</a>
+            <a :href="repository.url" target="_blank">{{ repository.name }}</a>
             <div class="star">
               <i class="material-icons">star</i>
               <span>{{ repository.stargazers }}</span>
@@ -50,7 +50,7 @@ export default {
   },
   data() {
     return {
-      developer: {}
+      developer: null
     };
   },
   created() {
@@ -62,8 +62,7 @@ export default {
     }),
     async getDeveloper() {
       const username = this.repository.name.split("/")[0];
-      this.developer = (await this.getDeveloperByUsername(username)) || {};
-      console.log(this.developer, this.repository);
+      this.developer = await this.getDeveloperByUsername(username);
     }
   }
 };
