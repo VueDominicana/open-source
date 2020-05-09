@@ -1,7 +1,9 @@
 import map from "lodash/map";
 
 import API from "@/util/api";
-
+// Move this to its own store
+// developers
+// repositories
 const state = {
   developers: [],
   repositories: []
@@ -25,6 +27,9 @@ const actions = {
     });
 
     commit("SET_DEVELOPERS", developers);
+  },
+  getDeveloperByUsername(context, username) {
+    return state.developers.find(developer => developer.login === username);
   },
   async getRepositories({ commit }) {
     const repositories = await API.getRepositories().catch(e => {
