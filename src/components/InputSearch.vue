@@ -4,8 +4,8 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">search</i>
-          <input id="search" type="text" class="validate" />
-          <label for="search"> {{ label }} </label>
+          <input id="search" type="text" class="validate" @input="onChange" />
+          <label for="search">{{ label }}</label>
         </div>
       </div>
     </form>
@@ -19,6 +19,11 @@ export default {
     label: {
       type: String,
       required: true
+    }
+  },
+  methods: {
+    onChange({ target: { value } }) {
+      this.$emit("input", value);
     }
   }
 };
