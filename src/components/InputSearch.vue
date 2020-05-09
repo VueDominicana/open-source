@@ -30,31 +30,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/* label color */
-.input-field label {
-  color: #039be5 !important;
-}
-/* label focus color */
-.input-field input[type="text"]:focus + label {
-  color: #039be5 !important;
-}
-/* label underline focus color */
-.input-field input[type="text"]:focus {
-  border-bottom: 1px solid #039be5 !important;
-  box-shadow: 0 1px 0 0 #039be5 !important;
-}
-/* valid color */
-.input-field input[type="text"].valid {
-  border-bottom: 1px solid #039be5 !important;
-  box-shadow: 0 1px 0 0 #039be5 !important;
-}
-/* invalid color */
-.input-field input[type="text"].invalid {
-  border-bottom: 1px solid #039be5 !important;
-  box-shadow: 0 1px 0 0 #039be5 !important;
-}
-/* icon prefix focus color */
-.input-field .prefix.active {
-  color: #039be5 !important;
+.input-field {
+  label {
+    color: #039be5 !important;
+  }
+
+  input {
+    &:focus {
+      + label {
+        color: #039be5 !important;
+      }
+
+      border-bottom: 1px solid #039be5 !important;
+      box-shadow: 0 1px 0 0 #039be5 !important;
+    }
+
+    &.valid,
+    &.invalid {
+      border-bottom: 1px solid #039be5 !important;
+      box-shadow: 0 1px 0 0 #039be5 !important;
+    }
+  }
+
+  .prefix.active {
+    color: #039be5 !important;
+  }
 }
 </style>
