@@ -2,7 +2,7 @@
   <div>
     <SubNav :sections="sections" />
     <router-view>
-      <InputSearch label="Filter developer by name or login name..." />
+      <InputSearch label="Filter developer by name or username..." />
     </router-view>
   </div>
 </template>
