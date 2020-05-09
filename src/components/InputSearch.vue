@@ -1,10 +1,10 @@
 <template>
-  <div class="row">
+  <div class="row input-search">
     <form class="col s12">
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">search</i>
-          <input id="search" type="text" class="validate" @input="onChange" />
+          <input id="search" type="search" class="validate" @input="onChange" autocomplete="off" />
           <label for="search">{{ label }}</label>
         </div>
       </div>
@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     onChange({ target: { value } }) {
-      this.$emit("input", value);
+      this.$emit("input", value.trim());
     }
   }
 };
