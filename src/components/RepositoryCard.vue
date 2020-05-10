@@ -1,5 +1,5 @@
 <template>
-  <div v-if="developer" class="row">
+  <div class="row">
     <div class="col s12 m12">
       <div class="card">
         <div class="card-content black-text">
@@ -21,7 +21,12 @@
           <languages :languages="repository.languages" />
         </div>
         <div class="card-action user">
-          <a :href="`https://github.com/${developer.login}`" target="_blank" class="center-items">
+          <a
+            :href="`https://github.com/${developer.login}`"
+            :alt="`${developer.name} profile image`"
+            target="_blank"
+            class="center-items"
+          >
             <img class="responsive-img circle" width="32" :src="developer.avatarUrl" />
             <span>{{ developer.name }}</span>
           </a>
@@ -36,9 +41,9 @@
 </template>
 
 <script>
+import emoji from "node-emoji";
 import { mapActions } from "vuex";
 import languages from "@/components/Languages";
-import emoji from "node-emoji";
 
 export default {
   name: "Repository",
@@ -53,7 +58,7 @@ export default {
   },
   data() {
     return {
-      developer: null
+      developer: {}
     };
   },
   created() {
