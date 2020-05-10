@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://developersdo.github.io/opensource/data";
+axios.defaults.baseURL = "https://raw.githubusercontent.com/DannyFeliz/opensource/develop/public/data";
 
 export default {
   getDevelopers() {
