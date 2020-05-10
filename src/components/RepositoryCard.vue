@@ -61,9 +61,6 @@ export default {
       developer: {}
     };
   },
-  created() {
-    this.getDeveloper();
-  },
   filters: {
     parseEmoji(text) {
       if (!text) {
@@ -72,14 +69,19 @@ export default {
       return emoji.emojify(text);
     }
   },
+  watch: {
+    repository: {
+      async handler() {
+        const username = this.repository.name.split("/")[0];
+        this.developer = await this.getDeveloperByUsername(username);
+      },
+      immediate: true
+    }
+  },
   methods: {
     ...mapActions({
       getDeveloperByUsername: "Developers/getDeveloperByUsername"
-    }),
-    async getDeveloper() {
-      const username = this.repository.name.split("/")[0];
-      this.developer = await this.getDeveloperByUsername(username);
-    }
+    })
   }
 };
 </script>
