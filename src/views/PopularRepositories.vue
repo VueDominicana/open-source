@@ -37,9 +37,9 @@ export default {
     }),
     filteredRepositories() {
       if (!this.search) {
-        return sortBy(this.repositories, repo => -repo.stargazers).slice(0, 10);
+        return this.repositories.slice(0, 5);
       }
-      const results = searcher.search(this.search).slice(0, 10);
+      const results = searcher.search(this.search).slice(0, 5);
       return sortBy(results, repo => -repo.stargazers);
     }
   },
