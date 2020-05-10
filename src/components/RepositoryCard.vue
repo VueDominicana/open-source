@@ -12,7 +12,7 @@
             </div>
           </header>
           <p>
-            {{ repository.description }}
+            {{ repository.description | parseEmoji }}
           </p>
         </div>
         <div class="card-action languages">
@@ -36,6 +36,7 @@
 <script>
 import { mapActions } from "vuex";
 import languages from "@/components/Languages";
+import emoji from "node-emoji";
 
 export default {
   name: "Repository",
@@ -55,6 +56,14 @@ export default {
   },
   created() {
     this.getDeveloper();
+  },
+  filters: {
+    parseEmoji(text) {
+      if (!text) {
+        return text;
+      }
+      return emoji.emojify(text);
+    }
   },
   methods: {
     ...mapActions({
