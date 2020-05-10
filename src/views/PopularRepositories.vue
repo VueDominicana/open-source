@@ -33,7 +33,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      repositories: "About/repositories"
+      repositories: "Repositories/repositories"
     }),
     filteredRepositories() {
       if (!this.search) {

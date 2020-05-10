@@ -51,8 +51,8 @@ export default {
   name: "Statistics",
   computed: {
     ...mapGetters({
-      developers: "About/developers",
-      repositories: "About/repositories",
+      developers: "Developers/developers",
+      repositories: "Repositories/repositories",
       developersWithMoreThanTenRepos: "About/developersWithMoreThanTenRepos",
       reposWithMoreThanOneStar: "About/reposWithMoreThanOneStar",
       reposContributionAvg: "About/reposContributionAvg",

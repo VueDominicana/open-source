@@ -30,7 +30,10 @@ export default {
   async mounted() {
     await this.$store.dispatch("App/setLoading", true);
 
-    await Promise.all([this.$store.dispatch("About/getDevelopers"), this.$store.dispatch("About/getRepositories")]);
+    await Promise.all([
+      this.$store.dispatch("Developers/getDevelopers"),
+      this.$store.dispatch("Repositories/getRepositories")
+    ]);
 
     await this.$store.dispatch("App/setLoading", false);
   }

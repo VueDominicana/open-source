@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      getDeveloperByUsername: "About/getDeveloperByUsername"
+      getDeveloperByUsername: "Developers/getDeveloperByUsername"
     }),
     async getDeveloper() {
       const username = this.repository.name.split("/")[0];

@@ -1,67 +1,29 @@
 import map from "lodash/map";
 
-import API from "@/util/api";
-// TODO: Move the developers and repositories to its own store.
-const state = {
-  developers: [],
-  repositories: []
-};
+const state = {};
 
-const mutations = {
-  SET_DEVELOPERS(state, developers) {
-    state.developers = developers;
-  },
-  SET_REPOSITORIES(state, repositories) {
-    state.repositories = repositories;
-  }
-};
+const mutations = {};
 
-const actions = {
-  async getDevelopers({ commit }) {
-    const developers = await API.getDevelopers().catch(e => {
-      console.error(e);
-
-      return [];
-    });
-
-    commit("SET_DEVELOPERS", developers);
-  },
-  // TODO: Move to the developers store
-  getDeveloperByUsername(context, username) {
-    return state.developers.find(developer => developer.login === username);
-  },
-  async getRepositories({ commit }) {
-    const repositories = await API.getRepositories().catch(e => {
-      console.error(e);
-
-      return [];
-    });
-
-    commit("SET_REPOSITORIES", repositories);
-  }
-};
+const actions = {};
 
 const getters = {
   mostPopularLanguage(state, getters) {
     return getters.reposLanguages.slice(0, 10);
   },
-  developers(state) {
-    return state.developers;
+  developers(state, getters, { Developers: { developers } }) {
+    return developers;
   },
-  repositories(state) {
-    return state.repositories;
+  developersWithMoreThanTenRepos(state, getters) {
+    return getters.developers.filter(developer => developer.sources > 10).length;
   },
-  developersWithMoreThanTenRepos(state) {
-    return state.developers.filter(developer => developer.sources > 10).length;
+  reposWithMoreThanOneStar(state, getters, { Repositories: { repositories } }) {
+    return repositories.filter(repo => repo.stargazers > 1).length;
   },
-  reposWithMoreThanOneStar(state) {
-    return state.repositories.filter(repo => repo.stargazers > 1).length;
+  reposContributionAvg(state, getters, { Repositories: { repositories } }) {
+    return (repositories.length / getters.developers.length).toFixed(1);
   },
-  reposContributionAvg(state) {
-    return (state.repositories.length / state.developers.length).toFixed(1);
-  },
-  reposLanguagesTotals(state) {
-    return state.repositories.reduce((total, repo) => {
+  reposLanguagesTotals(state, getters, { Repositories: { repositories } }) {
+    return repositories.reduce((total, repo) => {
       if (!repo.languages.length) {
         return total;
       }
@@ -75,11 +37,11 @@ const getters = {
       }, total);
     }, {});
   },
-  reposLanguages(state, getters) {
+  reposLanguages(state, getters, { Repositories: { repositories } }) {
     return map(getters.reposLanguagesTotals, (total, name) => ({
       name,
       total,
-      percentage: ((total / state.repositories.length) * 100).toFixed(2)
+      percentage: ((total / repositories.length) * 100).toFixed(2)
     })).sort((a, b) => b.total - a.total);
   },
   lessUsedLanguages(state, getters) {
