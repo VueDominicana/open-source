@@ -26,6 +26,7 @@ const actions = {
 
     commit("SET_DEVELOPERS", developers);
   },
+  // TODO: Move to the developers store
   getDeveloperByUsername(context, username) {
     return state.developers.find(developer => developer.login === username);
   },
