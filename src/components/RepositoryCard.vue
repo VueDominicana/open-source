@@ -4,11 +4,13 @@
       <div class="card">
         <div class="card-content black-text">
           <header>
-            <strong>#1</strong>
+            <strong>#{{ repository.position }}</strong>
             <a :href="repository.url" target="_blank">{{ repository.name }}</a>
             <div class="star">
-              <i class="material-icons">star</i>
-              <span>{{ repository.stargazers }}</span>
+              <a :href="`${repository.url}/stargazers`" target="_blank">
+                <i class="material-icons">star</i>
+                <span>{{ repository.stargazers }}</span>
+              </a>
             </div>
           </header>
           <p>
@@ -90,10 +92,13 @@ header {
     flex: 1;
   }
   .star {
-    display: flex;
-    align-items: center;
-    i {
-      margin-right: 3px;
+    a {
+      color: black;
+      display: flex;
+      align-items: center;
+      i {
+        margin-right: 3px;
+      }
     }
   }
 }
