@@ -5,7 +5,7 @@
       Showing <strong>{{ repositories.length.toLocaleString() }}</strong> repositories
       <span>sorted by stars.</span>
     </p>
-    <InputSearch label="Filter repository by name or description..." v-model="search" />
+    <InputSearch label="Filter repository by name or description..." v-model="searchTerm" />
     <Repositories v-for="repository in filteredRepositories" :repository="repository" :key="repository.id" />
   </div>
 </template>
@@ -16,7 +16,9 @@ import * as JsSearch from "js-search";
 import sortBy from "lodash/sortBy";
 import Repositories from "@/components/RepositoryCard";
 import InputSearch from "@/components/InputSearch";
-const searcher = new JsSearch.Search("id");
+const searcher = new JsSearch.Search("position");
+searcher.indexStrategy = new JsSearch.AllSubstringsIndexStrategy();
+searcher.searchIndex = new JsSearch.UnorderedSearchIndex();
 searcher.addIndex("name");
 searcher.addIndex("description");
 
@@ -28,7 +30,7 @@ export default {
   },
   data() {
     return {
-      search: ""
+      searchTerm: ""
     };
   },
   computed: {
@@ -36,11 +38,11 @@ export default {
       repositories: "Repositories/repositories"
     }),
     filteredRepositories() {
-      if (!this.search) {
-        return this.repositories.slice(0, 5);
+      if (!this.searchTerm) {
+        return this.repositories.slice(0, 10);
       }
-      const results = searcher.search(this.search).slice(0, 5);
-      return sortBy(results, repo => -repo.stargazers);
+      const results = searcher.search(this.searchTerm);
+      return sortBy(results, repo => -repo.stargazers).slice(0, 10);
     }
   },
   watch: {
