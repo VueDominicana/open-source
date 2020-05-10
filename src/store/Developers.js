@@ -7,9 +7,6 @@ const state = {
 const mutations = {
   SET_DEVELOPERS(state, developers) {
     state.developers = developers;
-  },
-  SET_REPOSITORIES(state, repositories) {
-    state.repositories = repositories;
   }
 };
 
