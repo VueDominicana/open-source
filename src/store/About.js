@@ -1,9 +1,7 @@
 import map from "lodash/map";
 
 import API from "@/util/api";
-// Move this to its own store
-// developers
-// repositories
+// TODO: Move the developers and repositories to its own store.
 const state = {
   developers: [],
   repositories: []
