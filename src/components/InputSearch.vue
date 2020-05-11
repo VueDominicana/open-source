@@ -22,14 +22,6 @@ export default {
       searchTerm: ""
     };
   },
-  activated() {
-    this.searchTerm = "";
-    // We are using keep-alive, and when we leave the screen while the input is focused all
-    // the states are preserved, so we need to restore the input to its initial state.
-    this.$nextTick(() => {
-      M.updateTextFields();
-    });
-  },
   watch: {
     searchTerm(newVal) {
       this.$emit("input", newVal.trim());
