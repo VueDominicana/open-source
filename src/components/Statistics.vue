@@ -45,19 +45,19 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapState } from "vuex";
 
 export default {
   name: "Statistics",
   computed: {
-    ...mapGetters({
-      developers: "Developers/developers",
-      repositories: "Repositories/repositories",
-      developersWithMoreThanTenRepos: "About/developersWithMoreThanTenRepos",
-      reposWithMoreThanOneStar: "About/reposWithMoreThanOneStar",
-      reposContributionAvg: "About/reposContributionAvg",
-      reposLanguages: "About/reposLanguages",
-      lessUsedLanguages: "About/lessUsedLanguages"
+    ...mapState({
+      developers: state => state.Developers.developers,
+      repositories: state => state.Repositories.repositories,
+      developersWithMoreThanTenRepos: state => state.About.developersWithMoreThanTenRepos,
+      reposWithMoreThanOneStar: state => state.About.reposWithMoreThanOneStar,
+      reposContributionAvg: state => state.About.reposContributionAvg,
+      reposLanguages: state => state.About.reposLanguages,
+      lessUsedLanguages: state => state.About.lessUsedLanguages
     })
   }
 };
