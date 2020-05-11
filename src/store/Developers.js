@@ -21,15 +21,20 @@ const actions = {
     commit("SET_DEVELOPERS", developers);
   },
   getDeveloperByUsername(context, username) {
-    return state.developers.find(developer => developer.login === username);
+    let developer = state.developers.find(developer => developer.login === username);
+    if (!developer) {
+      developer = {};
+      console.warn(
+        `Could not find user by login: ${developer}, probably the user changed his login. ` +
+          `More details at: https://github.com/developersdo/opensource/issues/89`
+      );
+    }
+
+    return developer;
   }
 };
 
-const getters = {
-  developers(state) {
-    return state.developers;
-  }
-};
+const getters = {};
 
 export default {
   namespaced: true,
