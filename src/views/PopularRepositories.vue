@@ -12,10 +12,12 @@
 
 <script>
 import { mapState } from "vuex";
-import deburr from "lodash/deburr";
 import sortBy from "lodash/sortBy";
 import Repositories from "@/components/RepositoryCard";
 import InputSearch from "@/components/InputSearch";
+import Searcher from "@/util/Searcher";
+
+const repoSearcher = new Searcher().setField("name").setField("description");
 
 export default {
   name: "PopularRepositories",
@@ -37,14 +39,15 @@ export default {
         return this.repositories.slice(0, 10);
       }
 
-      // TODO: Improve the performance, I'm not happy with the current speed.
-      // TODO Extract this to another file and make it modular.
-      const matcher = new RegExp(deburr(this.searchTerm), "i");
-      const filteredRepos = this.repositories.filter(repo => {
-        return matcher.test(deburr(repo.name)) || matcher.test(deburr(repo.description));
-      });
-
-      return sortBy(filteredRepos, repo => -repo.stargazers).slice(0, 10);
+      return sortBy(repoSearcher.findAll(this.searchTerm), repo => -repo.stargazers).slice(0, 10);
+    }
+  },
+  watch: {
+    repositories: {
+      handler() {
+        repoSearcher.setData(this.repositories);
+      },
+      immediate: true
     }
   }
 };
