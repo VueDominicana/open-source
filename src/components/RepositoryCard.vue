@@ -5,7 +5,9 @@
         <div class="card-content black-text">
           <header>
             <strong>#{{ repository.position }}</strong>
-            <a :href="repository.url" target="_blank">{{ repository.name }}</a>
+            <span>
+              <a :href="repository.url" target="_blank">{{ repository.name }}</a>
+            </span>
             <div class="star">
               <a :href="`${repository.url}/stargazers`" target="_blank">
                 <i class="material-icons">star</i>
@@ -95,7 +97,7 @@ header {
   strong {
     margin-right: 20px;
   }
-  a {
+  span {
     flex: 1;
   }
   .star {
