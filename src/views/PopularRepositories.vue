@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import Searcher from "./../util/searcher";
 import { mapGetters } from "vuex";
 import sortBy from "lodash/sortBy";
 import Repositories from "@/components/RepositoryCard";
 import InputSearch from "@/components/InputSearch";
+import Searcher from "@/util/searcher";
 
 const searcher = new Searcher("position").addIndex("name").addIndex("description");
 
