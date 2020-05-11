@@ -11,16 +11,13 @@
 </template>
 
 <script>
+import Searcher from "./../util/searcher";
 import { mapGetters } from "vuex";
-import * as JsSearch from "js-search";
 import sortBy from "lodash/sortBy";
 import Repositories from "@/components/RepositoryCard";
 import InputSearch from "@/components/InputSearch";
-const searcher = new JsSearch.Search("position");
-searcher.indexStrategy = new JsSearch.AllSubstringsIndexStrategy();
-searcher.searchIndex = new JsSearch.UnorderedSearchIndex();
-searcher.addIndex("name");
-searcher.addIndex("description");
+
+const searcher = new Searcher("position").addIndex("name").addIndex("description");
 
 export default {
   name: "PopularRepositories",
