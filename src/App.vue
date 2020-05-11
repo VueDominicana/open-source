@@ -3,9 +3,7 @@
     <loading :active="isLoading" />
     <AppNav />
     <div class="container">
-      <keep-alive>
-        <router-view />
-      </keep-alive>
+      <router-view />
     </div>
     <FloatingActionButton />
   </div>

@@ -1,9 +1,7 @@
 <template>
   <div>
     <SubNav :sections="sections" />
-    <keep-alive>
-      <router-view />
-    </keep-alive>
+    <router-view />
   </div>
 </template>
 
