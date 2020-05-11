@@ -48,8 +48,5 @@ export default {
 <style lang="scss" scoped>
 a {
   margin-right: 12px !important;
-  &:hover {
-    text-decoration: underline;
-  }
 }
 </style>

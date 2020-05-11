@@ -1,12 +1,16 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://developersdo.github.io/opensource/data";
+axios.defaults.baseURL = "https://raw.githubusercontent.com/DannyFeliz/opensource/develop/public/data";
 
 export default {
-  getDevelopers() {
-    return axios.get("/users.json").then(({ data }) => data);
+  async getDevelopers() {
+    const { data: developers } = await axios.get("/users.json");
+
+    return developers;
   },
-  getRepositories() {
-    return axios.get("/repos.json").then(({ data }) => data);
+  async getRepositories() {
+    const { data: repositories } = await axios.get("/repos.json");
+
+    return repositories;
   }
 };

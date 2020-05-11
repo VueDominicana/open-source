@@ -1,38 +1,41 @@
 <template>
-  <div>
-    <div class="row">
-      <div class="col s12 m12">
-        <div class="card">
-          <div class="card-content black-text">
-            <header>
-              <strong>#1</strong>
-              <a href="#">Amejia481/Associate-Android-Developer-Certification</a>
-              <div class="star">
+  <div class="row">
+    <div class="col s12 m12">
+      <div class="card">
+        <div class="card-content black-text">
+          <header>
+            <strong>#{{ repository.position }}</strong>
+            <span>
+              <a :href="repository.url" target="_blank">{{ repository.name }}</a>
+            </span>
+            <div class="star">
+              <a :href="`${repository.url}/stargazers`" target="_blank">
                 <i class="material-icons">star</i>
-                <span>723</span>
-              </div>
-            </header>
-            <p>
-              All the info and materials about the certification that I've collected so far
-            </p>
-          </div>
-          <div class="card-action languages">
-            <languages :languages="'javascript c# random'" />
-          </div>
-          <div class="card-action user">
-            <a href="#" class="center-items">
-              <img
-                class="responsive-img circle"
-                width="32"
-                src="https://avatars2.githubusercontent.com/u/773158?v=4&s=64"
-              />
-              <span>ARTURO MEJIA</span>
-            </a>
-            <a href="#" class="center-items">
-              <i class="material-icons">link</i>
-              <span>Github Project</span>
-            </a>
-          </div>
+                <span>{{ repository.stargazers }}</span>
+              </a>
+            </div>
+          </header>
+          <p>
+            {{ repository.description | parseEmoji }}
+          </p>
+        </div>
+        <div class="card-action languages">
+          <languages :languages="repository.languages" />
+        </div>
+        <div class="card-action user">
+          <a :href="`https://github.com/${developer.login}`" target="_blank" class="center-items">
+            <img
+              class="responsive-img circle"
+              :alt="`${developer.name} profile image`"
+              width="32"
+              :src="developer.avatarUrl"
+            />
+            <span>{{ developer.name }}</span>
+          </a>
+          <a :href="repository.url" class="center-items" target="_blank">
+            <i class="material-icons">link</i>
+            <span>Github Project</span>
+          </a>
         </div>
       </div>
     </div>
@@ -40,12 +43,47 @@
 </template>
 
 <script>
+import emoji from "node-emoji";
+import { mapActions } from "vuex";
 import languages from "@/components/Languages";
 
 export default {
   name: "Repository",
   components: {
     languages
+  },
+  props: {
+    repository: {
+      type: Object,
+      required: true
+    }
+  },
+  data() {
+    return {
+      developer: {}
+    };
+  },
+  filters: {
+    parseEmoji(text) {
+      if (!text) {
+        return text;
+      }
+      return emoji.emojify(text);
+    }
+  },
+  watch: {
+    repository: {
+      async handler() {
+        const username = this.repository.name.split("/")[0];
+        this.developer = await this.getDeveloperByUsername(username);
+      },
+      immediate: true
+    }
+  },
+  methods: {
+    ...mapActions({
+      getDeveloperByUsername: "Developers/getDeveloperByUsername"
+    })
   }
 };
 </script>
@@ -59,14 +97,17 @@ header {
   strong {
     margin-right: 20px;
   }
-  a {
+  span {
     flex: 1;
   }
   .star {
-    display: flex;
-    align-items: center;
-    i {
-      margin-right: 3px;
+    a {
+      color: black;
+      display: flex;
+      align-items: center;
+      i {
+        margin-right: 3px;
+      }
     }
   }
 }

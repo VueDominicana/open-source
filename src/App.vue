@@ -1,6 +1,11 @@
 <template>
   <div>
-    <loading :active="isLoading" />
+    <loading :active="isLoading" :opacity="0.9">
+      <div class="loading-content">
+        <span>Loading...</span>
+        <p>Please wait until we get all the data.</p>
+      </div>
+    </loading>
     <AppNav />
     <div class="container">
       <router-view />
@@ -30,7 +35,18 @@ export default {
   async mounted() {
     await this.$store.dispatch("App/setLoading", true);
 
-    await Promise.all([this.$store.dispatch("About/getDevelopers"), this.$store.dispatch("About/getRepositories")]);
+    await Promise.all([
+      this.$store.dispatch("Developers/getDevelopers"),
+      this.$store.dispatch("Repositories/getRepositories")
+    ]);
+
+    this.$store.dispatch("About/developersWithMoreThanTenRepos");
+    this.$store.dispatch("About/reposWithMoreThanOneStar");
+    this.$store.dispatch("About/reposContributionAvg");
+    this.$store.dispatch("About/reposLanguagesTotals");
+    this.$store.dispatch("About/reposLanguages");
+    this.$store.dispatch("About/mostPopularLanguages");
+    this.$store.dispatch("About/lessUsedLanguages");
 
     await this.$store.dispatch("App/setLoading", false);
   }
@@ -40,6 +56,11 @@ export default {
 <style lang="scss" scoped>
 @import "./assets/global";
 
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .md-content {
   padding: 16px;
   height: 100%;

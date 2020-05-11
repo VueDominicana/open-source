@@ -16,13 +16,12 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
+import { mapState } from "vuex";
 export default {
   name: "PopularLanguages",
   computed: {
-    ...mapGetters({
-      popularLanguages: "About/mostPopularLanguage"
+    ...mapState({
+      popularLanguages: state => state.About.mostPopularLanguages
     })
   }
 };

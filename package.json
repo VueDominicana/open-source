@@ -13,6 +13,7 @@
     "core-js": "^3.6.5",
     "lodash": "^4.17.15",
     "materialize-css": "^1.0.0-rc.2",
+    "node-emoji": "^1.10.0",
     "vue": "^2.6.11",
     "vue-loading-overlay": "^3.3.2",
     "vue-router": "^3.1.6",
