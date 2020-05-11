@@ -1,9 +1,11 @@
 <template>
   <div>
     <SubNav :sections="sections" />
-    <router-view>
-      <InputSearch label="Filter developer by name or username..." />
-    </router-view>
+    <keep-alive>
+      <router-view>
+        <InputSearch label="Filter developer by name or username..." />
+      </router-view>
+    </keep-alive>
   </div>
 </template>
 
