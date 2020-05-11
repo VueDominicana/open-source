@@ -23,13 +23,13 @@
           <languages :languages="repository.languages" />
         </div>
         <div class="card-action user">
-          <a
-            :href="`https://github.com/${developer.login}`"
-            :alt="`${developer.name} profile image`"
-            target="_blank"
-            class="center-items"
-          >
-            <img class="responsive-img circle" width="32" :src="developer.avatarUrl" />
+          <a :href="`https://github.com/${developer.login}`" target="_blank" class="center-items">
+            <img
+              class="responsive-img circle"
+              :alt="`${developer.name} profile image`"
+              width="32"
+              :src="developer.avatarUrl"
+            />
             <span>{{ developer.name }}</span>
           </a>
           <a :href="repository.url" class="center-items" target="_blank">
