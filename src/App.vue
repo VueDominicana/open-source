@@ -40,6 +40,14 @@ export default {
       this.$store.dispatch("Repositories/getRepositories")
     ]);
 
+    this.$store.dispatch("About/developersWithMoreThanTenRepos");
+    this.$store.dispatch("About/reposWithMoreThanOneStar");
+    this.$store.dispatch("About/reposContributionAvg");
+    this.$store.dispatch("About/reposLanguagesTotals");
+    this.$store.dispatch("About/reposLanguages");
+    this.$store.dispatch("About/mostPopularLanguages");
+    this.$store.dispatch("About/lessUsedLanguages");
+
     await this.$store.dispatch("App/setLoading", false);
   }
 };
