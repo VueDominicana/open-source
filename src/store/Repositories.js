@@ -22,11 +22,7 @@ const actions = {
   }
 };
 
-const getters = {
-  repositories(state) {
-    return state.repositories;
-  }
-};
+const getters = {};
 
 export default {
   namespaced: true,
