@@ -22,15 +22,6 @@ const actions = {
   },
   getDeveloperByUsername(context, username) {
     return state.developers.find(developer => developer.login === username);
-  },
-  async getRepositories({ commit }) {
-    const repositories = await API.getRepositories().catch(e => {
-      console.error(e);
-
-      return [];
-    });
-
-    commit("SET_REPOSITORIES", repositories);
   }
 };
 
