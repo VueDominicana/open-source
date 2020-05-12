@@ -15,7 +15,7 @@
       </div>
       <div class="card-action">
         <ul class="developer__statistics">
-          <li>{{ developer.sources }} repositories</li>
+          <li>{{ repositoriesCount(developer) }} repositories</li>
           <li>{{ developer.forked }} forks</li>
         </ul>
       </div>
@@ -33,6 +33,17 @@ export default {
     developer: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    repositoriesCount() {
+      return developer => {
+        const repositories = this.$store.state.Repositories.repositories.filter(
+          repository => repository.name.split("/")[0].toLowerCase() == developer.login.toLowerCase()
+        );
+
+        return Number(repositories.length).toLocaleString();
+      };
     }
   }
 };
