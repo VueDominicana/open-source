@@ -20,7 +20,7 @@
         </ul>
       </div>
       <div class="card-action">
-        <a :href="developer.url" target="_blank" style="text-transform: lowercase;">{{ developer.url }}</a>
+        <a :href="developer.url" target="_blank" class="developer__url">{{ developer.url }}</a>
       </div>
     </div>
   </div>
@@ -59,6 +59,11 @@ export default {
 
   &__statistics {
     margin: 0;
+  }
+
+  &__url {
+    text-transform: lowercase !important;
+    word-break: break-all;
   }
 }
 </style>

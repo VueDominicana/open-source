@@ -7,7 +7,9 @@
       <span>sorted by followers.</span>
     </p>
     <InputSearch label="Filter developer by name or username..." v-model="searchTerm" />
-    <DeveloperCard v-for="dev in filteredDevelopers" :developer="dev" :key="dev.id" />
+    <div class="row">
+      <DeveloperCard v-for="dev in filteredDevelopers" :developer="dev" :key="dev.id" />
+    </div>
   </div>
 </template>
 
