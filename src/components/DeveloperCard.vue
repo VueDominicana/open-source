@@ -2,27 +2,25 @@
   <div class="col s12 m6 l4">
     <div class="card hoverable">
       <div class="card-content center-align">
-        <span class="developer__rank">#1</span>
-        <a href="https://github.com/yyx990803" target="_blank">
+        <span class="developer__rank"># {{ developer.position }}</span>
+        <a :href="`https://github.com/${developer.login}`" target="_blank">
           <img
-            src="https://avatars3.githubusercontent.com/u/499550?s=400&u=de41ec9325e8a92e281b96a1514a0fd1cd81ad4a&v=4"
-            alt="evan yue profile image"
+            :src="developer.avatarUrl"
+            :alt="`${developer.name} profile image`"
             class="developer__photo circle responsive-img"
           />
-          <h3 class="card-title developer__name">Evan Yue</h3>
+          <h3 class="card-title developer__name">{{ developer.name }}</h3>
         </a>
-        <p>Followed by: 585</p>
+        <p>Followed by: {{ developer.followers }}</p>
       </div>
       <div class="card-action">
         <ul class="developer__statistics">
-          <li>0 repositories</li>
-          <li>0 forks</li>
+          <li>{{ developer.sources }} repositories</li>
+          <li>{{ developer.forked }} forks</li>
         </ul>
       </div>
       <div class="card-action">
-        <a href="https://github.com/yyx990803" target="_blank" style="text-transform: lowercase;">
-          https://github.com/yyx990803
-        </a>
+        <a :href="developer.url" target="_blank" style="text-transform: lowercase;">{{ developer.url }}</a>
       </div>
     </div>
   </div>
@@ -30,7 +28,13 @@
 
 <script>
 export default {
-  name: "DeveloperCard"
+  name: "DeveloperCard",
+  props: {
+    developer: {
+      type: Object,
+      required: true
+    }
+  }
 };
 </script>
 
