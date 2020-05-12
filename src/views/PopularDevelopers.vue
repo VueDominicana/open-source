@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapState } from "vuex";
 import sortBy from "lodash/sortBy";
 import DeveloperCard from "@/components/DeveloperCard";
 import InputSearch from "@/components/InputSearch";
@@ -34,8 +34,8 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({
-      developers: "Developers/developers"
+    ...mapState({
+      developers: state => state.Developers.developers
     }),
     filteredDevelopers() {
       if (!this.searchTerm) {

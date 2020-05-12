@@ -9,7 +9,7 @@
             :alt="`${developer.name} profile image`"
             class="developer__photo circle responsive-img"
           />
-          <h3 class="card-title developer__name">{{ developer.name }}</h3>
+          <h3 class="card-title developer__name">{{ developer.name || developer.login }}</h3>
         </a>
         <p>Followed by: {{ developer.followers }}</p>
       </div>

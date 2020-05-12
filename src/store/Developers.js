@@ -34,11 +34,7 @@ const actions = {
   }
 };
 
-const getters = {
-  developers() {
-    return state.developers;
-  }
-};
+const getters = {};
 
 export default {
   namespaced: true,
