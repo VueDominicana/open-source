@@ -3,7 +3,7 @@
     <h3 class="center-align">Popular Developers</h3>
     <p class="center">
       Showing
-      <strong>{{ filteredDevelopers.length.toLocaleString() }}</strong> developers
+      <strong>{{ developers.length.toLocaleString() }}</strong> developers
       <span>sorted by followers.</span>
     </p>
     <InputSearch label="Filter developer by name or username..." v-model="searchTerm" />
