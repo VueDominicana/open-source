@@ -7,7 +7,7 @@
       <span>sorted by followers.</span>
     </p>
     <InputSearch label="Filter developer by name or username..." v-model="searchTerm" />
-    <div class="row">
+    <div class="row flex">
       <DeveloperCard v-for="dev in filteredDevelopers" :developer="dev" :key="dev.id" />
     </div>
   </div>
@@ -60,5 +60,9 @@ export default {
 span {
   font-style: italic;
   font-weight: 600;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>

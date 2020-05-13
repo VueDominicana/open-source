@@ -1,6 +1,6 @@
 <template>
-  <div class="col s12 m6 l4">
-    <div class="card hoverable">
+  <div class="col s12 m6 l4 developer__col">
+    <div class="card hoverable developer__card">
       <div class="card-content center-align">
         <span class="developer__rank"># {{ developer.position }}</span>
         <a :href="`https://github.com/${developer.login}`" target="_blank">
@@ -51,6 +51,14 @@ export default {
 
 <style lang="scss" scoped>
 .developer {
+  &__col {
+    margin-left: 0 !important;
+  }
+
+  &__card {
+    height: 95%;
+  }
+
   &__rank {
     position: absolute;
     right: 20px;
