@@ -1,3 +1,4 @@
+import clone from "lodash/cloneDeep";
 import API from "@/util/api";
 
 const state = {
@@ -31,6 +32,20 @@ const actions = {
     }
 
     return developer;
+  },
+  calculateStatistics({ commit, state, rootState }) {
+    const developersCopy = clone(state.developers);
+
+    rootState.Repositories.repositories.forEach(repository => {
+      const developer = developersCopy.find(dev => dev.login === repository.name.split("/")[0]);
+
+      if (developer) {
+        developer.sources += 1;
+        developer.forked += repository.forks;
+      }
+    });
+
+    commit("SET_DEVELOPERS", developersCopy);
   }
 };
 

@@ -40,6 +40,8 @@ export default {
       this.$store.dispatch("Repositories/getRepositories")
     ]);
 
+    this.$store.dispatch("Developers/calculateStatistics");
+
     this.$store.dispatch("About/developersWithMoreThanTenRepos");
     this.$store.dispatch("About/reposWithMoreThanOneStar");
     this.$store.dispatch("About/reposContributionAvg");

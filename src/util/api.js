@@ -9,6 +9,8 @@ export default {
     const sortedDevelopers = sortBy(developers, dev => -dev.followers);
     return sortedDevelopers.map((dev, position) => {
       dev.position = position + 1;
+      dev.sources = 0;
+      dev.forked = 0;
       return dev;
     });
   },
