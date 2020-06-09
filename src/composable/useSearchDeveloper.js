@@ -13,7 +13,7 @@ export function useSearchDeveloper() {
       developers = developers.slice(0, 10);
     }
 
-    return sortBy(developerSearcher.findAll(searchTerm), dev => -dev.followers).slice(0, 10);
+    return developerSearcher.findAll(searchTerm).slice(0, 10);
   }
 
   function searchNewDevelopers(searchTerm) {
