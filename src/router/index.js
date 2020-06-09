@@ -25,7 +25,7 @@ const routes = [
       },
       {
         path: ":language",
-        name: "PopularRepositories",
+        name: "PopularRepositoriesByLanguages",
         component: PopularRepositories
       },
       {
