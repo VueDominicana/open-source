@@ -15,12 +15,9 @@
 
 <script>
 import { mapState } from "vuex";
-import sortBy from "lodash/sortBy";
 import DeveloperCard from "@/components/DeveloperCard";
 import InputSearch from "@/components/InputSearch";
-import Searcher from "@/util/Searcher";
-
-const developerSearcher = new Searcher().setField("name").setField("login");
+import { useSearchDeveloper } from "@/composable/useSearchDeveloper";
 
 export default {
   name: "PopularDevelopers",
@@ -30,7 +27,8 @@ export default {
   },
   data() {
     return {
-      searchTerm: ""
+      searchTerm: "",
+      search: () => {}
     };
   },
   computed: {
@@ -38,17 +36,14 @@ export default {
       developers: state => state.Developers.developers
     }),
     filteredDevelopers() {
-      if (!this.searchTerm) {
-        return this.developers.slice(0, 10);
-      }
-
-      return sortBy(developerSearcher.findAll(this.searchTerm), dev => -dev.followers).slice(0, 10);
+      return this.search(this.searchTerm);
     }
   },
   watch: {
     developers: {
       handler() {
-        developerSearcher.setData(this.developers);
+        const { searchPopular } = useSearchDeveloper();
+        this.search = searchPopular;
       },
       immediate: true
     }
