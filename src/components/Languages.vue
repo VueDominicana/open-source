@@ -1,16 +1,16 @@
 <template>
   <div>
     <span v-if="!languages.trim()">(no languages)</span>
-    <a
+    <router-link
       v-else
-      href="#"
       class="chip"
       v-for="(language, index) in languagesWithColors"
       :key="index"
       :style="{ backgroundColor: language.backgroundColor, color: language.textColor }"
+      :to="'/repositories/' + language.text"
     >
       {{ language.text }}
-    </a>
+    </router-link>
   </div>
 </template>
 
