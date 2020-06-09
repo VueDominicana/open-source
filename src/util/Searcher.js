@@ -5,7 +5,6 @@ export default class Searcher {
    * @param {Array}
    */
   fields = [];
-  z;
 
   /**
    *
