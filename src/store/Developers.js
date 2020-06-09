@@ -52,11 +52,12 @@ const actions = {
 
 const getters = {
   newDevelopers(state) {
-    const newDevs = clone(state.developers).filter(dev => {
-      const lastMonthDate = new Date();
-      const ONE_MONTH = 30;
-      lastMonthDate.setDate(lastMonthDate.getDate() - ONE_MONTH);
-      return +new Date(dev.createdAt) >= +lastMonthDate;
+    const lastMonthDate = new Date();
+    const ONE_MONTH = 30;
+    lastMonthDate.setDate(lastMonthDate.getDate() - ONE_MONTH);
+
+    const newDevs = state.developers.filter(dev => {
+      return new Date(dev.createdAt) >= lastMonthDate;
     });
 
     const sortedDevs = sortBy(newDevs, dev => -Number(new Date(dev.createdAt)));
