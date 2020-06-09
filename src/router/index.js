@@ -24,6 +24,11 @@ const routes = [
         component: PopularRepositories
       },
       {
+        path: ":language",
+        name: "PopularRepositories",
+        component: PopularRepositories
+      },
+      {
         path: "new",
         name: "NewRepositories",
         component: () => import(/* webpackChunkName: "new-repositories" */ "../views/NewRepositories.vue")
