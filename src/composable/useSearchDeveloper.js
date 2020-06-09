@@ -9,11 +9,11 @@ export function useSearchDeveloper() {
     let developers = store.state.Developers.developers;
     developerSearcher.setData(developers);
 
-    if (!searchTerm) {
-      developers = developers.slice(0, 10);
+    if (searchTerm) {
+      developers = developerSearcher.findAll(searchTerm);
     }
 
-    return developerSearcher.findAll(searchTerm).slice(0, 10);
+    return developers.slice(0, 10);
   }
 
   function searchNewDevelopers(searchTerm) {
