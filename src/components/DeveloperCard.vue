@@ -4,11 +4,7 @@
       <div class="card-content center-align">
         <span class="developer__rank"># {{ developer.position }}</span>
         <a :href="`https://github.com/${developer.login}`" target="_blank">
-          <img
-            :src="developer.avatarUrl"
-            :alt="`${developer.name} profile image`"
-            class="developer__photo circle responsive-img"
-          />
+          <img :src="developer.avatarUrl" :alt="`${developer.name}`" class="developer__photo circle responsive-img" />
           <h3 class="card-title developer__name">{{ developer.name || developer.login }}</h3>
         </a>
         <p>Followed by: {{ developer.followers }}</p>
