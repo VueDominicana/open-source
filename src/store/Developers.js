@@ -61,7 +61,7 @@ const getters = {
     });
 
     const sortedDevs = sortBy(newDevs, dev => -Number(new Date(dev.createdAt)));
-    return sortedDevs.map((dev, index) => {
+    return clone(sortedDevs).map((dev, index) => {
       dev.position = index + 1;
 
       return dev;
