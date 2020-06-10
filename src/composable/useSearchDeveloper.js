@@ -20,11 +20,11 @@ export function useSearchDeveloper() {
     let developers = store.getters["Developers/newDevelopers"];
     developerSearcher.setData(developers);
 
-    if (!searchTerm) {
-      developers = developers.slice(0, 10);
+    if (searchTerm) {
+      developers = sortBy(developerSearcher.findAll(searchTerm), dev => -Number(new Date(dev.createdAt)));
     }
 
-    return sortBy(developerSearcher.findAll(searchTerm), dev => -Number(new Date(dev.createdAt))).slice(0, 10);
+    return developers.slice(0, 10);
   }
 
   return { searchPopular, searchNewDevelopers };
