@@ -1,4 +1,5 @@
 import clone from "lodash/cloneDeep";
+import sortBy from "lodash/sortBy";
 import API from "@/util/api";
 
 const state = {
@@ -49,7 +50,24 @@ const actions = {
   }
 };
 
-const getters = {};
+const getters = {
+  newDevelopers(state) {
+    const lastMonthDate = new Date();
+    const ONE_MONTH = 30;
+    lastMonthDate.setDate(lastMonthDate.getDate() - ONE_MONTH);
+
+    const newDevs = state.developers.filter(dev => {
+      return new Date(dev.createdAt) >= lastMonthDate;
+    });
+
+    const sortedDevs = sortBy(newDevs, dev => -Number(new Date(dev.createdAt)));
+    return clone(sortedDevs).map((dev, index) => {
+      dev.position = index + 1;
+
+      return dev;
+    });
+  }
+};
 
 export default {
   namespaced: true,
