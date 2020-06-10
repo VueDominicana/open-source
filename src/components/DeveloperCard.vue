@@ -2,7 +2,7 @@
   <div class="col s12 m6 l4 developer__col">
     <div class="card hoverable developer__card">
       <div class="card-content center-align">
-        <span class="developer__rank"># {{ developer.position }}</span>
+        <span class="developer__rank">#{{ developer.position }}</span>
         <a :href="`https://github.com/${developer.login}`" target="_blank">
           <img :src="developer.avatarUrl" :alt="`${developer.name}`" class="developer__photo circle responsive-img" />
           <h3 class="card-title developer__name">{{ developer.name || developer.login }}</h3>
