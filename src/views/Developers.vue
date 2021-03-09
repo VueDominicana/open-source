@@ -7,6 +7,7 @@
 
 <script>
 import SubNav from "@/components/SubNav";
+
 export default {
   name: "Deveopers",
   components: {
