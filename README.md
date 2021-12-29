@@ -11,10 +11,6 @@ The data source in order to make this work will be:
 1. https://developersdo.github.io/opensource/data/repos.json
 2. https://developersdo.github.io/opensource/data/users.json
 
-If you want to join the community here is the link.
-
-[![WhatsApp](https://i.imgur.com/ewvbbzu.png)](https://chat.whatsapp.com/L5rFQpme22IHmmyOMI1MWA)
-
 
 ## How to contribute 
 
